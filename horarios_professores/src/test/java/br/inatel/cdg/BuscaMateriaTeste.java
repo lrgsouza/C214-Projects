@@ -9,13 +9,12 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.google.gson.JsonElement;
+
+
 
 
 @RunWith(MockitoJUnitRunner.class)
@@ -99,4 +98,25 @@ public class BuscaMateriaTeste {
         Materia s204 = buscaMateria.busca("s204");
         String sala = s204.getSalas().get(0).getAsString();
     }
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testeMateriaSemHorario() {
+        Mockito.when(service.buscaMateria("s204")).thenReturn(MateriaApiResult.S204);
+        Materia s204 = buscaMateria.busca("s204");
+        String horario = s204.getHorarios().get(0).getAsString();
+    }
+    @Test
+    public void testeMateriaSemProfessor() {
+        Mockito.when(service.buscaMateria("s204")).thenReturn(MateriaApiResult.S204);
+        Materia s204 = buscaMateria.busca("s204");
+        String professor = s204.getProfessor();
+        assertEquals("", professor);
+    }
+    @Test
+    public void testeMateriaQtdSalas() {
+        Mockito.when(service.buscaMateria("c214")).thenReturn(MateriaApiResult.C214);
+        Materia c214 = buscaMateria.busca("c214");
+    
+        assertEquals(3, c214.getSalas().size());
+    }
+
 }
