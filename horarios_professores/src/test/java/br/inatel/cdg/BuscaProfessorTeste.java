@@ -86,10 +86,15 @@ public class BuscaProfessorTeste {
         assertEquals(1, renzo.getPredio().size());
     }
 
-    @Test
+    @Test(expected = NullPointerException.class)
     public void testeBuscarPeriodoProfessorInexistente(){
         Mockito.when(service.buscaProfessor("john")).thenReturn(null);
         Professor john = buscaProfessor.busca("john");
         assertEquals(null, john.getPeriodo());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testeBuscarProfessorComNomeNulo() {
+        buscaProfessor.busca(null);
     }
 }
