@@ -7,14 +7,14 @@ public class Materia {
     private String nome;
     private String tipo;
     private List<Integer> salas;
-    private List<Professor> professores;
+    private Professor professor;
     private List<String> horarios;
 
-    public Materia(String nome, String tipo, List<Integer> salas, List<Professor> professores, List<String> horarios) {
+    public Materia(String nome, String tipo, List<Integer> salas, Professor professor, List<String> horarios) {
         this.nome = nome;
         this.tipo = tipo;
         this.salas = salas;
-        this.professores = professores;
+        this.professor = professor;
         this.horarios = horarios;
     }
 
@@ -30,8 +30,8 @@ public class Materia {
         return salas;
     }
 
-    public List<Professor> getProfessores() {
-        return professores;
+    public Professor getProfessor() {
+        return professor;
     }
 
     public List<String> getHorarios() {
@@ -50,8 +50,8 @@ public class Materia {
         this.salas = salas;
     }
 
-    public void setProfessores(List<Professor> professores) {
-        this.professores = professores;
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
     }
 
     public void setHorarios(List<String> horarios) {
