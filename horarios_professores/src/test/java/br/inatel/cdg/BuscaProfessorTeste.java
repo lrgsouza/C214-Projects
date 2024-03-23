@@ -7,6 +7,12 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BuscaProfessorTeste {
@@ -28,5 +34,35 @@ public class BuscaProfessorTeste {
         assertEquals("Chris Lima", chris.getNome());
     }
 
+    @Test
+    public void testeBuscarHorarioProfessor(){
+        Mockito.when(service.buscaProfessor("chris")).thenReturn(ProfessorApiResult.CHRIS);
+        Professor chris = buscaProfessor.busca("chris");
+        assertEquals("15:30", chris.getHorario());
+    }
 
+    @Test
+    public void testBuscarPredioSala(){
+        Map<String, List<Integer>> predio_sala = new HashMap<>();
+        predio_sala.put("1", Arrays.asList(1, 2, 3, 4, 5));
+        predio_sala.put("2", Arrays.asList(6, 7, 8, 9, 10));
+        predio_sala.put("3", Arrays.asList(11, 12, 13, 14, 15));
+        predio_sala.put("4", Arrays.asList(16, 17, 18, 19, 20));
+        predio_sala.put("5", Arrays.asList(21, 22, 23, 24, 25));
+        predio_sala.put("6", Arrays.asList(26, 27, 28, 29, 30));
+
+        Mockito.when(service.buscaProfessor("chris")).thenReturn(ProfessorApiResult.CHRIS);
+        Professor chris = buscaProfessor.busca("chris");
+
+        String predio = chris.getPredio().get(0).getAsString();
+
+        assertTrue(predio_sala.get(predio).contains(chris.getSala()));
+    }
+
+    @Test
+    public void testBuscarPeriodo(){
+        Mockito.when(service.buscaProfessor("chris")).thenReturn(ProfessorApiResult.CHRIS);
+        Professor chris = buscaProfessor.busca("chris");
+        assertEquals("Integral", chris.getPeriodo());
+    }
 }
