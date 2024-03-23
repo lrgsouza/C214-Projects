@@ -30,7 +30,7 @@ public class BuscaProfessorTeste {
     public void testeBuscarProfessor(){
         Mockito.when(service.buscaProfessor("chris")).thenReturn(ProfessorApiResult.CHRIS);
         Professor chris = buscaProfessor.busca("chris");
-        System.out.println(chris.predio);
+        System.out.println(chris.getPredio());
         assertEquals("Chris Lima", chris.getNome());
     }
 
@@ -86,10 +86,15 @@ public class BuscaProfessorTeste {
         assertEquals(1, renzo.getPredio().size());
     }
 
-    @Test
+    @Test(expected = NullPointerException.class)
     public void testeBuscarPeriodoProfessorInexistente(){
         Mockito.when(service.buscaProfessor("john")).thenReturn(null);
         Professor john = buscaProfessor.busca("john");
         assertEquals(null, john.getPeriodo());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testeBuscarProfessorComNomeNulo() {
+        buscaProfessor.busca(null);
     }
 }
