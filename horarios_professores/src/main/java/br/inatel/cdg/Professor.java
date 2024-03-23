@@ -3,11 +3,11 @@ package br.inatel.cdg;
 import com.google.gson.JsonArray;
 
 public class Professor {
-    public String nome;
-    public String horario;
-    public String periodo;
-    public Integer sala;
-    public JsonArray predio;
+    private String nome;
+    private String horario;
+    private String periodo;
+    private Integer sala;
+    private JsonArray predio;
 
     public Professor(String nome, String horario, String periodo, Integer sala, JsonArray predio) {
         this.nome = nome;
