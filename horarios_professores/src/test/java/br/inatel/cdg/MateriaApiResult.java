@@ -14,10 +14,17 @@ public class MateriaApiResult {
     "{\n" + 
     "    \"nome\": \"Analise de dados\",\n" + 
     "    \"tipo\": \"Teoria\",\n" +
-    "    \"salas\": [\"1\",\"2\",\"3\"],\n" +
+    "    \"salas\": [\"4\",\"5\",\"6\"],\n" +
     "    \"professor\": \"Renzo Mesquita\",\n" +
     "    \"horarios\": [\"19:30\"]\n" + 
     "}";
+    public static String S204 = 
+    "{\n" + 
+    "    \"nome\": \"Alguma materia\",\n" + 
+    "    \"tipo\": \"Teoria\",\n" +
+    "    \"salas\": [],\n" +
+    "    \"professor\": \"\",\n" +
+    "    \"horarios\": []\n" + 
+    "}";
     
-
 }
