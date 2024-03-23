@@ -18,6 +18,14 @@ public class MateriaApiResult {
     "    \"professor\": \"Renzo Mesquita\",\n" +
     "    \"horarios\": [\"19:30\"]\n" + 
     "}";
+    public static String S204 = 
+    "{\n" + 
+    "    \"nome\": \"Analise de dados\",\n" + 
+    "    \"tipo\": \"Teoria\",\n" +
+    "    \"salas\": [],\n" +
+    "    \"professor\": \"Renzo Mesquita\",\n" +
+    "    \"horarios\": [\"19:30\"]\n" + 
+    "}";
     
 
 }
