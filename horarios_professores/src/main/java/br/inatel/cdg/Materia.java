@@ -2,15 +2,19 @@ package  br.inatel.cdg;
 
 import java.util.List;
 
+import com.google.gson.JsonArray;
+
+import com.google.gson.JsonObject;
+
 public class Materia {
 
     private String nome;
     private String tipo;
-    private List<Integer> salas;
-    private Professor professor;
-    private List<String> horarios;
+    private JsonArray salas;
+    private String professor;
+    private JsonArray horarios;
 
-    public Materia(String nome, String tipo, List<Integer> salas, Professor professor, List<String> horarios) {
+    public Materia(String nome, String tipo, JsonArray salas, String professor, JsonArray horarios) {
         this.nome = nome;
         this.tipo = tipo;
         this.salas = salas;
@@ -26,15 +30,15 @@ public class Materia {
         return tipo;
     }
 
-    public List<Integer> getSalas() {
+    public JsonArray getSalas() {
         return salas;
     }
 
-    public Professor getProfessor() {
+    public String getProfessor() {
         return professor;
     }
 
-    public List<String> getHorarios() {
+    public JsonArray getHorarios() {
         return horarios;
     }
 
@@ -46,15 +50,15 @@ public class Materia {
         this.tipo = tipo;
     }
 
-    public void setSalas(List<Integer> salas) {
+    public void setSalas(JsonArray salas) {
         this.salas = salas;
     }
 
-    public void setProfessor(Professor professor) {
+    public void setProfessor(String professor) {
         this.professor = professor;
     }
 
-    public void setHorarios(List<String> horarios) {
+    public void setHorarios(JsonArray horarios) {
         this.horarios = horarios;
     }
 }

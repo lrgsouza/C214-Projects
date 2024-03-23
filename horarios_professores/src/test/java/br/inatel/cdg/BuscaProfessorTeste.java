@@ -93,7 +93,7 @@ public class BuscaProfessorTeste {
         assertEquals(null, john.getPeriodo());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testeBuscarProfessorComNomeNulo() {
         buscaProfessor.busca(null);
     }
