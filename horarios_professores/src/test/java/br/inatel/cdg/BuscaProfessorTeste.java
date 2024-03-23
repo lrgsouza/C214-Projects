@@ -59,10 +59,37 @@ public class BuscaProfessorTeste {
         assertTrue(predio_sala.get(predio).contains(chris.getSala()));
     }
 
-    @Test
-    public void testBuscarPeriodo(){
+   @Test
+    public void testeBuscarPeriodo(){
         Mockito.when(service.buscaProfessor("chris")).thenReturn(ProfessorApiResult.CHRIS);
         Professor chris = buscaProfessor.busca("chris");
         assertEquals("Integral", chris.getPeriodo());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testeBuscarProfessorInexistente(){
+        Mockito.when(service.buscaProfessor("john")).thenReturn(null);
+        Professor john = buscaProfessor.busca("john");
+    }
+
+    @Test
+    public void testeBuscarHorarioProfessorInexistente(){
+        Mockito.when(service.buscaProfessor("renzo")).thenReturn(ProfessorApiResult.RENZO);
+        Professor renzo = buscaProfessor.busca("renzo");
+        assertEquals("", renzo.getHorario());
+    }
+
+    @Test
+    public void testBuscaQtdaPredioProfessor(){
+        Mockito.when(service.buscaProfessor("renzo")).thenReturn(ProfessorApiResult.RENZO);
+        Professor renzo = buscaProfessor.busca("renzo");
+        assertEquals(1, renzo.getPredio().size());
+    }
+
+    @Test
+    public void testeBuscarPeriodoProfessorInexistente(){
+        Mockito.when(service.buscaProfessor("john")).thenReturn(null);
+        Professor john = buscaProfessor.busca("john");
+        assertEquals(null, john.getPeriodo());
     }
 }

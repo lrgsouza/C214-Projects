@@ -11,7 +11,7 @@ public class BuscaProfessor {
         this.ProfessorService = ProfessorService;
     }
 
-    public Professor busca(String nome){
+    public Professor busca(String nome) {
         String profJson = ProfessorService.buscaProfessor(nome);
         JsonObject Professor = JsonParser.parseString(profJson).getAsJsonObject();
 
@@ -21,8 +21,7 @@ public class BuscaProfessor {
                 Professor.get("periodo").getAsString(),
                 Professor.get("sala").getAsInt(),
                 Professor.get("predio").getAsJsonArray());
+
     }
-    
-    
 
 }
