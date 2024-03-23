@@ -1,6 +1,6 @@
 package  br.inatel.cdg;
 
-import com.google.gson.JsonArray;
+import java.util.List;
 
 public class Materia {
 
