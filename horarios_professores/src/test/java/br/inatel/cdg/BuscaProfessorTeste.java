@@ -30,7 +30,7 @@ public class BuscaProfessorTeste {
     public void testeBuscarProfessor(){
         Mockito.when(service.buscaProfessor("chris")).thenReturn(ProfessorApiResult.CHRIS);
         Professor chris = buscaProfessor.busca("chris");
-        System.out.println(chris.predio);
+        System.out.println(chris.getPredio());
         assertEquals("Chris Lima", chris.getNome());
     }
 
