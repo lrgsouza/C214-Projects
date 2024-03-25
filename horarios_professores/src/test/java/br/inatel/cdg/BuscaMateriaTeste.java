@@ -37,7 +37,6 @@ public class BuscaMateriaTeste {
     public void testeBuscarMateria() {
         Mockito.when(service.buscaMateria("c111")).thenReturn(MateriaApiResult.C111);
         Materia c111 = buscaMateria.busca("c111");
-        System.out.println(c111.getNome());
         assertEquals("Analise de dados", c111.getNome());
     }
 
@@ -45,7 +44,6 @@ public class BuscaMateriaTeste {
     public void testeBuscarUmHorario() {
         Mockito.when(service.buscaMateria("c111")).thenReturn(MateriaApiResult.C111);
         Materia c111 = buscaMateria.busca("c111");
-        System.out.println(c111.getHorarios());
         assertEquals("19:30", c111.getHorarios().get(0).getAsString());
     }
 
@@ -53,7 +51,6 @@ public class BuscaMateriaTeste {
     public void testeBuscarTipo() {
         Mockito.when(service.buscaMateria("c214")).thenReturn(MateriaApiResult.C214);
         Materia c214 = buscaMateria.busca("c214");
-        System.out.println(c214.getTipo());
         assertEquals("Lab", c214.getTipo());
     }
 
