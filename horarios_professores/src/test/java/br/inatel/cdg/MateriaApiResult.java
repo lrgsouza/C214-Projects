@@ -26,5 +26,13 @@ public class MateriaApiResult {
     "    \"professor\": \"\",\n" +
     "    \"horarios\": []\n" + 
     "}";
+    public static String X230 = 
+    "{\n" + 
+    "    \"nome\": null,\n" + 
+    "    \"tipo\": \"Teoria\",\n" +
+    "    \"salas\": [],\n" +
+    "    \"professor\": \"\",\n" +
+    "    \"horarios\": []\n" + 
+    "}";
     
 }

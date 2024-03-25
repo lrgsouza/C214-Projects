@@ -14,8 +14,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import java.util.ArrayList;
 
-
+import com.google.gson.JsonElement;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BuscaMateriaTeste {
@@ -23,12 +24,13 @@ public class BuscaMateriaTeste {
     @Mock
     MateriaService service;
     BuscaMateria buscaMateria;
-    ProfessorService professor;
+    ProfessorService professorService;
     BuscaProfessor buscaProfessor;
 
     @Before
     public void setup() {
         this.buscaMateria = new BuscaMateria(service);
+        this.buscaProfessor = new BuscaProfessor(professorService);
     }
 
     @Test
@@ -72,21 +74,7 @@ public class BuscaMateriaTeste {
 
         assertTrue(predio_sala.get("1").contains(sala));
     }
-    // @Test
-    // public void testeProfessorMateria() {
-    //     Mockito.when(service.buscaMateria("c214")).thenReturn(MateriaApiResult.C214);
-    //     Materia c214 = buscaMateria.busca("c214");
-    //     Mockito.when(professor.buscaProfessor("Chris Lima")).thenReturn(ProfessorApiResult.CHRIS);
-        
-    //     Professor chris = buscaProfessor.busca("Chris Lima");
-    //     List<String> salas = new ArrayList<>();
 
-    //     for (JsonElement sala : c214.getSalas()) {
-    //         salas.add(sala.getAsString());
-    //     }
-
-    //     assertTrue(salas.contains(String.valueOf(chris.getSala())));
-    // }
     @Test(expected = NullPointerException.class)
     public void testeMateriaInexistente() {
         Mockito.when(service.buscaMateria("c300")).thenReturn(null);
@@ -119,4 +107,10 @@ public class BuscaMateriaTeste {
         assertEquals(3, c214.getSalas().size());
     }
 
+    @Test(expected = UnsupportedOperationException.class)
+    public void testeBuscarMateriaComNomeNulo() {
+        Mockito.when(service.buscaMateria("x230")).thenReturn(MateriaApiResult.X230);
+        Materia x230 = buscaMateria.busca("x230");
+        String nome = x230.getNome();
+    }
 }

@@ -18,7 +18,20 @@ public class ProfessorApiResult {
     "    \"sala\": \"10\",\n" +
     "    \"predio\": [\"2\"]\n" + 
     "}";
-
+    public static String MARCELO = 
+    "{\n" + 
+    "    \"nomeDoProfessor\": \"Marcelo Cysneiros\",\n" + 
+    "    \"horarioDeAtendimento\": \"10:00\",\n" +
+    "    \"periodo\": \"\",\n" +
+    "    \"sala\": \"2\",\n" +
+    "    \"predio\": []\n" + 
+    "}";
+    public static String NEW_PROFESSOR = 
+    "{\n" + 
+    "    \"nomeDoProfessor\": null,\n" + 
+    "    \"horarioDeAtendimento\": \"10:00\",\n" +
+    "    \"periodo\": \"\",\n" +
+    "    \"sala\": \"2\",\n" +
+    "    \"predio\": []\n" + 
+    "}";
 }
-
-

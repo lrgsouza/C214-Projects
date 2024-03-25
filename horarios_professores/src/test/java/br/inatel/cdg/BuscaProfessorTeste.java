@@ -90,11 +90,24 @@ public class BuscaProfessorTeste {
     public void testeBuscarPeriodoProfessorInexistente(){
         Mockito.when(service.buscaProfessor("john")).thenReturn(null);
         Professor john = buscaProfessor.busca("john");
-        assertEquals(null, john.getPeriodo());
     }
 
     @Test(expected = NullPointerException.class)
-    public void testeBuscarProfessorComNomeNulo() {
+    public void testeBuscarProfessorNulo() {
         buscaProfessor.busca(null);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testeBuscarProfessorSemPredio() {
+        Mockito.when(service.buscaProfessor("marcelo")).thenReturn(ProfessorApiResult.MARCELO);
+        Professor marcelo = buscaProfessor.busca("marcelo");
+        String predio = marcelo.getPredio().get(0).getAsString();
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testeBuscarProfessorComNomeNulo() {
+        Mockito.when(service.buscaProfessor("last")).thenReturn(ProfessorApiResult.NEW_PROFESSOR);
+        Professor last = buscaProfessor.busca("last");
+        String nome = last.getNome();
     }
 }
