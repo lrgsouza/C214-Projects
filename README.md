@@ -9,5 +9,5 @@
 ## Execução
 ```bash
 cd horarios_professores
-mvn -Dtest=br.inatel.cdg.BuscaProfessorTeste test
+mvn -Dtest=br.inatel.cdg.BuscaProfessorTeste,br.inatel.cdg.BuscaMateriaTeste test
 ```
