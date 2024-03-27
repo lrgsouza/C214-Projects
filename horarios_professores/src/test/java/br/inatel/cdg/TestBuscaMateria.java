@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import com.google.gson.JsonElement;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BuscaMateriaTeste {
+public class TestBuscaMateria {
 
     @Mock
     MateriaService service;

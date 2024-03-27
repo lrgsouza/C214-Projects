@@ -20,12 +20,12 @@ jobs:
         - name: Test with Maven
           run: |
             cd horarios_professores
-            mvn -Dtest=br.inatel.cdg.BuscaProfessorTeste,br.inatel.cdg.BuscaMateriaTeste test
+            mvn clean test site
         - name: Upload test results as artifact
           uses: actions/upload-artifact@v4
           with:
             name: test-results
-            path: horarios_professores/target/surefire-reports/
+            path: horarios_professores/target/site
             
     build:
         runs-on: ubuntu-latest
