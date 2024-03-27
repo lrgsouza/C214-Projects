@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BuscaProfessorTeste {
+public class TestBuscaProfessor {
 
     @Mock
     ProfessorService service;
